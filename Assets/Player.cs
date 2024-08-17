@@ -9,25 +9,74 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
+    [SerializeField] private Transform frontcheck;
+    [SerializeField] private Transform backcheck;
     [SerializeField] private LayerMask groundLayer;
+    public GameObject Flashlight;
+    private bool flashlighton;
+
+    public bool front;
+   
+    public bool back;
+    
+
     
 
     void Update()
     {
+
         
 
         if (Input.GetKey("d"))
         {
-            horizontal = 1;
+            if(isFacingRight && !front)
+            {
+                horizontal = 1;
+            }
+            if(!isFacingRight && !back)
+            {
+                horizontal = 1;
+            }
         }
         else if (Input.GetKey("a"))
         {
-            horizontal = -1;
+            if(!isFacingRight && !front)
+            {
+                horizontal = -1;
+            }
+            if(isFacingRight && !back)
+            {
+                horizontal = -1;
+            }
         }
         else
         {
             horizontal = 0;
         }
+
+        if(Input.GetKeyDown("e"))
+        {
+            if(flashlighton)
+            {
+                flashlighton = false;
+            }
+            else
+            {
+                flashlighton = true;
+            }
+           
+        }
+
+            if(flashlighton)
+            {
+                Flashlight.SetActive(true);
+            }
+            else
+            {
+                Flashlight.SetActive(false);
+            }
+    
+
 
 
 
@@ -42,6 +91,8 @@ public class Player : MonoBehaviour
         }
 
         Flip();
+
+        
     }
 
     private void FixedUpdate()
@@ -54,6 +105,10 @@ public class Player : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
+    
+    
+  
+
     private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
@@ -64,4 +119,6 @@ public class Player : MonoBehaviour
             transform.localScale = localScale;
         }
     }
+
+
 }
