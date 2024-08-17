@@ -21,12 +21,27 @@ public class Player : MonoBehaviour
     public bool back;
 
     public Animator Animator;
+
+    public bool Jumpscare;
     
 
     
+    void Start()
+    {
+        Jumpscare = false;
+    }
 
     void Update()
     {
+        if(Jumpscare)
+        {
+            horizontal = 0;
+        }
+
+        if(!Jumpscare)
+        {
+   
+        
 
         fs.Timer += -Time.deltaTime * 0.3f;
 
@@ -107,7 +122,7 @@ public class Player : MonoBehaviour
         }
 
         Flip();
-
+        }
         
     }
 
