@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public bool front;
    
     public bool back;
+
+    public Animator Animator;
     
 
     
@@ -32,10 +34,12 @@ public class Player : MonoBehaviour
             if(isFacingRight && !front)
             {
                 horizontal = 1;
+                Animator.SetBool("run", true);
             }
             if(!isFacingRight && !back)
             {
                 horizontal = 1;
+                Animator.SetBool("run", true);
             }
         }
         else if (Input.GetKey("a"))
@@ -43,16 +47,21 @@ public class Player : MonoBehaviour
             if(!isFacingRight && !front)
             {
                 horizontal = -1;
+                Animator.SetBool("run", true);
             }
             if(isFacingRight && !back)
             {
                 horizontal = -1;
+                Animator.SetBool("run", true);
             }
         }
         
         if(!Input.GetKey("a") && !Input.GetKey("d"))
         {
             horizontal = 0;
+            
+            Animator.SetBool("run", false);
+            
         }
 
         if(Input.GetKeyDown("e"))
@@ -79,12 +88,17 @@ public class Player : MonoBehaviour
     
 
 
-
+        
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
+            
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            
         }
+
+
+       
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
@@ -128,6 +142,7 @@ public class Player : MonoBehaviour
             if(Input.GetKey("w"))
             {
                 rb.velocity = new Vector2(rb.velocity.x, speed * 0.3f);
+                Animator.SetBool("run", false);
             }
             
         }
