@@ -49,7 +49,8 @@ public class Player : MonoBehaviour
                 horizontal = -1;
             }
         }
-        else
+        
+        if(!Input.GetKey("a") && !Input.GetKey("d"))
         {
             horizontal = 0;
         }
