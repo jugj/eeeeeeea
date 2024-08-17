@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 public class Player : MonoBehaviour
 {
+    public flashlight fs;
     public float horizontal;
     public float speed = 8f;
     public float jumpingPower = 16f;
@@ -27,7 +28,7 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        
+        fs.Timer += -Time.deltaTime * 0.3f;
 
         if (Input.GetKey("d"))
         {
