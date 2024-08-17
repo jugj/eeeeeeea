@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 public class Player : MonoBehaviour
 {
+    public flashlight fs;
     public float horizontal;
     public float speed = 8f;
     public float jumpingPower = 16f;
@@ -20,14 +21,29 @@ public class Player : MonoBehaviour
     public bool back;
 
     public Animator Animator;
+
+    public bool Jumpscare;
     
 
     
+    void Start()
+    {
+        Jumpscare = false;
+    }
 
     void Update()
     {
+        if(Jumpscare)
+        {
+            horizontal = 0;
+        }
 
+        if(!Jumpscare)
+        {
+   
         
+
+        fs.Timer += -Time.deltaTime * 0.3f;
 
         if (Input.GetKey("d"))
         {
@@ -106,7 +122,7 @@ public class Player : MonoBehaviour
         }
 
         Flip();
-
+        }
         
     }
 
