@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using TMPro;
+using System.Collections;
 public class Player : MonoBehaviour
 {
     public flashlight fs;
@@ -23,7 +25,13 @@ public class Player : MonoBehaviour
     public Animator Animator;
 
     public bool Jumpscare;
-    
+
+    public bool Level2;  
+    public GameObject Pulsob;
+    public TMP_Text pulstxt;
+    public int puls;
+    public GameObject pulssound;
+    public bool Level2once;
 
     
     void Start()
@@ -33,6 +41,20 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+
+        if(Level2)
+        {
+            Pulsob.SetActive(true);
+            pulstxt.text = puls.ToString();
+            
+        }
+
+        if(Level2 && !Level2once)
+        {
+            StartCoroutine(pulss());
+            Level2once = true;
+        }
+
         if(Jumpscare)
         {
             horizontal = 0;
@@ -162,6 +184,23 @@ public class Player : MonoBehaviour
             }
             
         }
+
+         if(coll.gameObject.tag == "Level2")
+        {
+            Level2 = true;
+            
+        }
+
+    }
+
+    public IEnumerator pulss()
+    {
+
+        pulssound.SetActive(false);
+        yield return new WaitForSeconds(15f / puls);
+        pulssound.SetActive(true);
+        yield return new WaitForSeconds(15f / puls);
+        StartCoroutine(pulss());
     }
 
 
