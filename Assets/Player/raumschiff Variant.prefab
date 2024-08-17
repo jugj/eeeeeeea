@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8839090678189768273
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4440951366828725972, guid: 48106ab3927d8bc498781d9d06893f9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.2443453e-14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440951366828725972, guid: 48106ab3927d8bc498781d9d06893f9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2861483e-12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440951366828725972, guid: 48106ab3927d8bc498781d9d06893f9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440951366828725972, guid: 48106ab3927d8bc498781d9d06893f9d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.023869753
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440951366828725972, guid: 48106ab3927d8bc498781d9d06893f9d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.70337284
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440951366828725972, guid: 48106ab3927d8bc498781d9d06893f9d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7101168
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440951366828725972, guid: 48106ab3927d8bc498781d9d06893f9d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.020763027
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440951366828725972, guid: 48106ab3927d8bc498781d9d06893f9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 3.616
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440951366828725972, guid: 48106ab3927d8bc498781d9d06893f9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180.269
+      objectReference: {fileID: 0}
+    - target: {fileID: 4440951366828725972, guid: 48106ab3927d8bc498781d9d06893f9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 89.445
+      objectReference: {fileID: 0}
+    - target: {fileID: 4882500160896619120, guid: 48106ab3927d8bc498781d9d06893f9d, type: 3}
+      propertyPath: m_Name
+      value: raumschiff Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4882500160896619120, guid: 48106ab3927d8bc498781d9d06893f9d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2101867884921798729}
+    - targetCorrespondingSourceObject: {fileID: 4882500160896619120, guid: 48106ab3927d8bc498781d9d06893f9d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5623275366241429837}
+  m_SourcePrefab: {fileID: 100100000, guid: 48106ab3927d8bc498781d9d06893f9d, type: 3}
+--- !u!1 &4136804906028788769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4882500160896619120, guid: 48106ab3927d8bc498781d9d06893f9d, type: 3}
+  m_PrefabInstance: {fileID: 8839090678189768273}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2101867884921798729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136804906028788769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918840c6d32edfb429568e8e244f953c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5623275366241429837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136804906028788769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a86bd359905d5a48b805d4b325dccc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  gravityScale: 0
+  fallingGravityScale: 15
+  SprungKraft: 30
+  Geschwindigkeit: 3
