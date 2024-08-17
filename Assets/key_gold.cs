@@ -11,6 +11,7 @@ public class key_gold : MonoBehaviour
         if(col.gameObject.tag == "Player")
         {
             Destroy(door);
+            Sound.SetActive(false);
             Sound.SetActive(true);
             Destroy(gameObject);
         }
