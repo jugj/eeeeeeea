@@ -121,5 +121,17 @@ public class Player : MonoBehaviour
         }
     }
 
+    void OnTriggerStay2D(Collider2D coll)
+    {
+        if(coll.gameObject.tag == "ladder")
+        {
+            if(Input.GetKey("w"))
+            {
+                rb.velocity = new Vector2(rb.velocity.x, speed * 0.3f);
+            }
+            
+        }
+    }
+
 
 }
