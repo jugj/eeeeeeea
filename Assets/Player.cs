@@ -49,7 +49,8 @@ public class Player : MonoBehaviour
                 horizontal = -1;
             }
         }
-        else
+        
+        if(!Input.GetKey("a") && !Input.GetKey("d"))
         {
             horizontal = 0;
         }
@@ -117,6 +118,18 @@ public class Player : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D coll)
+    {
+        if(coll.gameObject.tag == "ladder")
+        {
+            if(Input.GetKey("w"))
+            {
+                rb.velocity = new Vector2(rb.velocity.x, speed * 0.3f);
+            }
+            
         }
     }
 
