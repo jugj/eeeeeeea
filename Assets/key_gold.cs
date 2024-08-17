@@ -7,8 +7,13 @@ public class key_gold : MonoBehaviour
     public GameObject door;
     void OnCollisionEnter2D(Collision2D col)
     {
-        Destroy(door);
-        Destroy(gameObject);
+        if(col.gameObject.tag == "Player")
+        {
+            Destroy(door);
+            Destroy(gameObject);
+        }
+
+        
 
     }
 }
