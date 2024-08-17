@@ -27,4 +27,9 @@ public class Spaceship : MonoBehaviour
         if(Input.GetKey("d"))   
             transform.Translate(Vector2.left*speed*Time.deltaTime*-1, Space.World);   
     }
+
+    void OnTriggerEnter2D(Collider2D other){
+        Destroy(gameObject);
+        Destroy(other.gameObject);
+    }
 }
