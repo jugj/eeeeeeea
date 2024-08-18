@@ -2,6 +2,9 @@ using System;
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public flashlight fs;
@@ -29,10 +32,18 @@ public class Player : MonoBehaviour
     public bool Level2;  
     public GameObject Pulsob;
     public TMP_Text pulstxt;
-    public int puls;
+    public float puls;
     public GameObject pulssound;
     public bool Level2once;
 
+    public GameObject Atmenslow;
+    public GameObject Atmenfast;
+
+    public GameObject Jumpscare2;
+
+    public Light2D flashlight;
+
+    public GameObject scream2;
     
     void Start()
     {
@@ -42,10 +53,79 @@ public class Player : MonoBehaviour
     void Update()
     {
 
+
+        if(!Level2)
+        {
+            Atmenslow.SetActive(false);
+            Atmenfast.SetActive(false);
+        }
+
         if(Level2)
         {
             Pulsob.SetActive(true);
-            pulstxt.text = puls.ToString();
+            pulstxt.text =  ((int) puls).ToString();
+
+            if(Input.GetKey("d"))
+            {
+                puls += Time.deltaTime * 1.5f;
+            }
+            
+             if(Input.GetKey("a"))
+            { 
+                puls += Time.deltaTime * 1.5f ;
+            }
+
+             if(!Input.GetKey("a") && !Input.GetKey("d"))
+            {
+                puls += -Time.deltaTime * 1.6f;
+            }
+
+             if(Input.GetKeyDown("space"))
+            {
+                puls += 2.5f;
+            }
+
+            
+
+            if(puls < 50)
+            {
+                scream2.SetActive(true);
+                flashlight.intensity = 0f;
+                Jumpscare2.SetActive(true);
+                Jumpscare = true;
+                StartCoroutine(ResetGame());
+            }
+
+              if(puls > 120)
+            {
+                scream2.SetActive(true);
+                flashlight.intensity = 0f;
+                Jumpscare2.SetActive(true);
+                StartCoroutine(ResetGame());
+            }
+
+
+             if(puls < 60)
+            {
+                Atmenslow.SetActive(true);
+            }
+
+              if(puls > 110)
+            {
+                Atmenfast.SetActive(true);
+            }
+
+             if(puls > 60)
+            {
+                Atmenslow.SetActive(false);
+            }
+
+              if(puls < 110)
+            {
+                Atmenfast.SetActive(false);
+            }
+
+
             
         }
 
@@ -203,5 +283,9 @@ public class Player : MonoBehaviour
         StartCoroutine(pulss());
     }
 
-
+       public IEnumerator ResetGame()
+    {
+        yield return new WaitForSecondsRealtime(0.6f);
+        SceneManager.LoadScene("SampleScene");
+    } 
 }
