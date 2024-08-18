@@ -44,6 +44,9 @@ public class Player : MonoBehaviour
     public Light2D flashlight;
 
     public GameObject scream2;
+
+    public GameObject scream3;
+    public GameObject Jumpscare3;
     
     void Start()
     {
@@ -273,6 +276,17 @@ public class Player : MonoBehaviour
 
     }
 
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.tag == "Monster3")
+        {
+            flashlight.intensity = 0f;
+            scream3.SetActive(true);
+            Jumpscare3.SetActive(true);
+            StartCoroutine(ResetGame());
+        }
+    }
+
     public IEnumerator pulss()
     {
 
@@ -287,5 +301,6 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(0.6f);
         SceneManager.LoadScene("SampleScene");
+
     } 
 }
